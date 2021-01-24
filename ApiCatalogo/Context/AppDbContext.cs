@@ -9,6 +9,7 @@ namespace ApiCatalogo.Context
 {
     public class AppDbContext : DbContext
     { 
+        //Cosntrutor que define o contexto entre o Banco e EF Core para que possamos realizar o CRUD
         public AppDbContext(DbContextOptions<AppDbContext>options)
             : base(options)
         {
