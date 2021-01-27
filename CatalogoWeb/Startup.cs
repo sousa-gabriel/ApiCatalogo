@@ -25,6 +25,8 @@ namespace CatalogoWeb
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllersWithViews();
+            services.AddCors();
+        
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -51,6 +53,7 @@ namespace CatalogoWeb
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
+            app.UseCors(option => option.AllowAnyOrigin()); ;
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

@@ -23,5 +23,16 @@ namespace CatalogoWeb.Context
         {
            return _context.Produtos.ToList();
         }
+        
+        [HttpGet("{id}")]
+        public ActionResult<Produto> Get(int id)
+        {
+            var produto = _context.Produtos.FirstOrDefault(P => P.ProdutoId == id);
+            if(produto == null)
+            {
+                return NotFound();
+            }
+            return produto;
+        }
     }
 }
